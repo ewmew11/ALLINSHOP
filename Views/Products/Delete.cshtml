@@ -1,0 +1,134 @@
+﻿@model ALLINSHOP.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+@if (Session["AdminName"] != null)
+{
+    <head>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Admin Edit Hero</title>
+        <script src="https://kit.fontawesome.com/6c0acd38d0.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <div class="card" style="max-width:100%;">
+
+        <div class="row">
+            <div class="col mt-4 ms-1">
+                <img src="@Url.Content(Model.PO_Pic)" style="height:fit-content; width:100%" class="rounded-3" />
+            </div>
+
+            <div class="col-md-6 mt-0">
+                <div class="card-body ">
+
+                    @using (Html.BeginForm("Delete", "Products", FormMethod.Post, new { enctype = "multipart/form-data", @id = "ProductForm" }))
+                    {
+                        @Html.HiddenFor(m => m.PO_ID)
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="col-auto">
+                                    @Html.DisplayNameFor(model => model.PO_Name) : @Html.DisplayFor(model => model.PO_Name)
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="col-auto">
+                                    @Html.DisplayNameFor(model => model.PO_Price) : @Html.DisplayFor(model => model.PO_Price)
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="col-auto">
+                                    @Html.DisplayNameFor(model => model.Hero.Hero_Name) : @Html.DisplayFor(model => model.Hero.Hero_Name)
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="col-auto">
+                                    @Html.DisplayNameFor(model => model.PO_Pic) : @Html.DisplayFor(model => model.PO_Pic)
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="col-auto">
+                                    @Html.DisplayNameFor(model => model.Type.Type_Name) : @Html.DisplayFor(model => model.Type.Type_Name)
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="col ms-3 mt-2">
+                            Are you sure delete this product ?
+                            <input type="submit" value="ตกลง" class="btn btn-primary rounded-3 ms-5" />
+                            <button type="submit" class="btn btn-danger rounded-3 ms-2" onclick="window.close()">Close</button>                           
+                        </div>
+                    }
+
+                </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <script>
+
+    function myfunction() {
+
+        $('#btn_submit').click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: "POST",
+                data: new FormData(document.getElementById("ProductForm")),
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                url: "@Url.Action("EditHero", "Products")",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (response) {
+                    console.log("response", response);
+                    if (response.code == 1) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.text,
+                            type: 'success'
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    }
+                    else if (response.code == -1) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: "Error (" + response.code + ") \n" + response.text,
+                            type: 'error'
+                        }).then((result) => {
+                            window.open('@Url.Action("Index", "Home")', '_blank');
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: "Error (" + response.code + ") \n" + response.text,
+                            type: 'error'
+                        })
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    console.log("error ", jqXHR.responseText, " | exception ", exception);
+                }
+            });
+        });
+    }
+
+    </script>
+}
+
+
+

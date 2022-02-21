@@ -1,0 +1,96 @@
+﻿@model ALLINSHOP.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Product Details</title>
+
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <link href="~/styles/style.css" rel="stylesheet" />
+    <script src="~/styles/fontawesome.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+
+<body class="bg-dark">
+    <div class="text-center align-content-center">
+        <div class="card bg-dark" style="width:550px; height:650px">
+            <div class="card-body bg-dark">
+                @using (Html.BeginForm("Product_Detials", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @id = "ProductForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul class="list-group bg-dark list-group-flush">
+
+                        @Html.HiddenFor(model => model.PO_ID)
+
+                        <li class="list-group-item text-light bg-dark ms-2 zoom">
+                            <img src="@Url.Content(Model.PO_Pic)" class="rounded-3" />
+                        </li>
+
+                        <li class="list-group-item text-light bg-dark fs-3">
+                            @Html.LabelFor(model => model.PO_Name, "Name :   ", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.DisplayFor(model => model.PO_Name, "", new { @class = "text-danger fs-4" })
+
+                        </li>
+
+                        <li class="list-group-item text-light bg-dark fs-3">
+                            @Html.LabelFor(model => model.Hero.Hero_Name, "Hero :   ", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.DisplayFor(model => model.Hero.Hero_Name, "", new { @class = "text-danger fs-4" })
+
+                        </li>
+
+                        <li class="list-group-item text-light bg-dark fs-3">
+                            @Html.LabelFor(model => model.Type.Type_Name, "Type :   ", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.DisplayFor(model => model.Type.Type_Name, "", new { @class = "text-danger fs-4" })
+
+                        </li>
+
+                        <li class="list-group-item text-light bg-dark fs-3">
+                            @Html.LabelFor(model => model.PO_Price, "Price :   ", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.DisplayFor(model => model.PO_Price, "", new { @class = "text-danger fs-4" }) &#3647;
+
+                        </li>
+                        <li class="list-group-item text-light bg-dark ms-auto">
+                            <div class="col-md-offset-2">
+                                <button type="button" class="btn btn-primary btn-lg rounded-3" onclick="window.close()">Close</button>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                }
+
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

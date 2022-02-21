@@ -1,0 +1,368 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Dota 2 All In Shop</title>
+    <meta name="theme-color" content="#FF0000">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dota2allinshop.com">
+    <meta property="og:title" content="Dota 2 All In Shop">
+    <meta property="og:description" content="จำหน่ายสินค้าทุกชนิดในเกมส์ Dota 2">
+    <link runat="server" rel="shortcut icon" href="~/Images/Icons/juggernaut.ico" type="image/x-icon" />
+    <link runat="server" rel="shortcut icon" href="~/Images/Icons/ico-e.ico" type="image/x-ico" />
+<meta name="google-site-verification" content="qxz36NJZQdlo4MEcuba8SaxgCcTb7RKoB7N1pvr-7ns" />
+<meta name="google-site-verification" content="3XF6s2Gvh0Oisqo3DgYG3AgGjavyDHiWP57ehAox19o" />
+    <script src="https://kit.fontawesome.com/6c0acd38d0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link href="~/dist/Content/PagedList.css" rel="stylesheet" type="text/css" />
+    <link href="~/styles/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    @*Page Bg*@
+    <div class="container-fluid bg-image"
+         style="background-image: url();
+            height: 100%;
+            width: 100%;
+            background-color:black;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:cover;">
+
+        <!-- Facebook Chat plugin  -->
+        <!-- Messenger Chat plugin Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Chat plugin code -->
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "109419631542351");
+            chatbox.setAttribute("attribution", "biz_inbox");
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '827213497798583',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v11.0'
+                });
+            };
+
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/th_TH/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+        <!-- Facebook Chat plugin  -->
+
+        @*Navbar Bg*@
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-lg-3 col-xl-1 px-sm-2 px-0 bg-image"
+                     style="background-image: url(/Images/nav-bg.jpg);
+                     background-size:cover;
+                     background-position:center;
+                     background-repeat:no-repeat;">
+
+                    @*Side Nav Menu*@
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5 position-fixed" id="menu">
+                            <li class="nav-item">
+                                <a href="/" class="navbar-brand text-center ms-4 align-middle px-0">
+                                    <span class="fs-4 d-none d-sm-inline text-dark fw-bold">Menu</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr />
+                            </li>
+                            @*Index Page*@
+                            <li class="nav-item">
+                                <a href="#" class="nav-link align-middle px-0" onclick="window.open('@Url.Action("Index", "Home")','_self')">
+                                    <i class="fas fa-house-damage fs-3 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Home </span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr />
+                            </li>
+                            @*Item Page*@
+                            <li class="nav-item">
+                                <a href="#" class="nav-link align-middle px-0" onclick="window.open('@Url.Action("Product_cards", "Home")','_self')">
+                                    <i class="fas fa-dice-d20 fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Item&nbsp; </span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr />
+                            </li>
+                            @*Hero Dropdown*@
+                            <li class="nav-item">
+                                <a class="nav-link align-middle px-0 dropdown-toggle text-black-50" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" data-mdb-filter="true" >
+                                    <i class="fas fa-hamsa fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Hero</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark bg-dark  scrollable-menu rounded-3" aria-labelledby="navbarDarkDropdownMenuLink1" role="menu">
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Abaddon" })','_self')">Abaddon</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Alchemist" })','_self')">Alchemist</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Ancient Apparition" })','_self')">Ancient Apparition</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Anti-Mage" })','_self')">Anti-Mage</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Arc Warden" })','_self')">Arc Warden</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Axe" })','_self')">Axe</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Bane" })','_self')">Bane</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Batrider" })','_self')">Batrider</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Beastmaster" })','_self')">Beastmaster</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Bloodseeker" })','_self')">Bloodseeker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Bounty Hunter" })','_self')">Bounty Hunter</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Brewmaster" })','_self')">Brewmaster</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Bristleback" })','_self')">Bristleback</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Broodmother" })','_self')">Broodmother</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Centaur Warrunner" })','_self')">Centaur Warrunner</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Chaos Knight" })','_self')">Chaos Knight</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Chen" })','_self')">Chen</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Clinkz" })','_self')">Clinkz</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Clockwerk" })','_self')">Clockwerk</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Crystal Maiden" })','_self')">Crystal Maiden</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Dark Seer" })','_self')">Dark Seer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Dark Willow" })','_self')">Dark Willow</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Dawnbreaker" })','_self')">Dawnbreaker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Dazzle" })','_self')">Dazzle</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Death Prophet" })','_self')">Death Prophet</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Disruptor" })','_self')">Disruptor</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Doom" })','_self')">Doom</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Dragon Knight" })','_self')">Dragon Knight</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Drow Ranger" })','_self')">Drow Ranger</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Earth Spirit" })','_self')">Earth Spirit</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Earthshaker" })','_self')">Earthshaker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Elder Titan" })','_self')">Elder Titan</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Ember Spirit" })','_self')">Ember Spirit</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Enchantress" })','_self')">Enchantress</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Enigma" })','_self')">Enigma</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Faceless Void" })','_self')">Faceless Void</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Grimstroke" })','_self')">Grimstroke</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Gyrocopter" })','_self')">Gyrocopter</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Hoodwink" })','_self')">Hoodwink</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Huskar" })','_self')">Huskar</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Invoker" })','_self')">Invoker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Io" })','_self')">Io</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Jakiro" })','_self')">Jakiro</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Juggernaut" })','_self')">Juggernaut</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Keeper of the Light" })','_self')">Keeper of the Light</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Kunkka" })','_self')">Kunkka</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Legion Commander" })','_self')">Legion Commander</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Leshrac" })','_self')">Leshrac</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lich" })','_self')">Lich</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lifestealer" })','_self')">Lifestealer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lina" })','_self')">Lina</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lion" })','_self')">Lion</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lone Druid" })','_self')">Lone Druid</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Luna" })','_self')">Luna</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Lycan" })','_self')">Lycan</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Magnus" })','_self')">Magnus</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Mars" })','_self')">Mars</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Medusa" })','_self')">Medusa</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Meepo" })','_self')">Meepo</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Mirana" })','_self')">Mirana</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Monkey King" })','_self')">Monkey King</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Morphling" })','_self')">Morphling</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Naga Siren" })','_self')">Naga Siren</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Nature" })','_self')">Nature's Prophet</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Necrophos" })','_self')">Necrophos</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Night Stalker" })','_self')">Night Stalker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Nyx Assassin" })','_self')">Nyx Assassin</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Ogre Magi" })','_self')">Ogre Magi</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Omniknight" })','_self')">Omniknight</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Oracle" })','_self')">Oracle</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Outworld Destroyer" })','_self')">Outworld Destroyer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pangolier" })','_self')">Pangolier</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Phantom Assassin" })','_self')">Phantom Assassin</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Phantom Lancer" })','_self')">Phantom Lancer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Phoenix" })','_self')">Phoenix</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Puck" })','_self')">Puck</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pudge" })','_self')">Pudge</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pugna" })','_self')">Pugna</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Queen of Pain" })','_self')">Queen of Pain</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Razor" })','_self')">Razor</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Riki" })','_self')">Riki</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Rubick" })','_self')">Rubick</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Sand King" })','_self')">Sand King</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Shadow Demon" })','_self')">Shadow Demona</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Shadow Fiend" })','_self')">Shadow Fiend</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Shadow Shaman" })','_self')">Shadow Shaman</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Silencer" })','_self')">Silencer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Skywrath Mage" })','_self')">Skywrath Mage</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Slardar" })','_self')">Slardar</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Slark" })','_self')">Slark</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Snapfire" })','_self')">Snapfire</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Sniper" })','_self')">Sniper</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Spectre" })','_self')">Spectre</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Spirit Breaker" })','_self')">Spirit Breaker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Storm Spirit" })','_self')">Storm Spirit</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Sven" })','_self')">Sven</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Techies" })','_self')">Techies</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Templar Assassin" })','_self')">Templar Assassin</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Terrorblade" })','_self')">Terrorblade</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tidehunter" })','_self')">Tidehunter</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Timbersaw" })','_self')">Timbersaw</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tinker" })','_self')">Tinker</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tiny" })','_self')">Tiny</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Treant Protector" })','_self')">Treant Protector</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Troll Warlord" })','_self')">Troll Warlord</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tusk" })','_self')">Tusk</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Underlord" })','_self')">Underlord</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Undying" })','_self')">Undying</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Ursa" })','_self')">Ursa</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Vengeful Spirit" })','_self')">Vengeful Spirit</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Venomancer" })','_self')">Venomancer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Viper" })','_self')">Viper</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Visage" })','_self')">Visage</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Void Spirit" })','_self')">Void Spirit</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Warlock" })','_self')">Warlock</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Weaver" })','_self')">Weaver</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Windranger" })','_self')">Windranger</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Winter Wyvern" })','_self')">Winter Wyvern</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Witch Doctor" })','_self')">Witch Doctor</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Wraith King" })','_self')">Wraith King</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Zeus" })','_self')">Zeus</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <hr />
+                            </li>
+                            @*Type Dropdown*@
+                            <li class="nav-item">
+                                <a class="nav-link align-middle px-0 dropdown-toggle text-black-50" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                    <i class="fab fa-hornbill fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Type</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark bg-dark rounded-3 scrollable-menu1" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Announcer" })','_self')">Announcer</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Arcana" })','_self')">Arcana</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Arcana TB" })','_self')">Arcana TB</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Arcana Techies" })','_self')">Arcana Techies</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Courier" })','_self')">Courier</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Cursor Pack" })','_self')">Cursor Pack</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="DOTA PLUS" })','_self')">DOTA PLUS</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Emblem" })','_self')">Emblem</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Full Gem" })','_self')">Full Gem</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="HUD" })','_self')">HUD</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Immortal (Add 30 days)" })','_self')">Immortal (30 days)</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Immortal" })','_self')">Immortal</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Infused" })','_self')">Infused</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Item" })','_self')">Item</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Mix Set" })','_self')">Mix Set</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Music" })','_self')">Music</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Set (Add 30 days)" })','_self')">Set (30 days)</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Set" })','_self')">Set</a></li>
+<li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pet" })','_self')">Pet</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Taunt" })','_self')">Taunt</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Terrain" })','_self')">Terrain</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tools" })','_self')">Tools</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Voice" })','_self')">Voice</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Ward" })','_self')">Ward</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Weather" })','_self')">Weather</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="col py-3">
+                    @*Head Bg*@
+                    <div class="col p-4 text-start align-text-top text-light bg-image rounded-3"
+                         style="background-image: url(/Images/head_bg_1.png);
+                             height: 400px;
+                             width:100%;
+                             background-position:top;
+                             background-size:cover;
+                             background-position:center;
+                             background-repeat:no-repeat;">
+                        <div class="row">
+                            <div class="col-sm-4 mb-4 mt-2">
+                                <img src="~/Images/Allin.png" style='height: 100%; width: 100%; object-fit: contain' onclick="window.open('@Url.Action("Index", "Home")','_self')">
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3">
+                                <a href="https://www.facebook.com/dota2allinshopv2/" target="_blank">
+                                    <img src="~/Images/super-final-fac-1.png" alt="icon" style='height:100%; width:100%; object-fit:contain'>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    @RenderBody()
+                    <hr />
+                    @*Footer*@
+                    <footer class="bg-dark rounded-3" id="tempaltemo_footer">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col pt-4">
+                                    <h2 class="h2 text-white-50 border-bottom pb-3 border-light logo mb-3">DOTA 2 ALL IN SHOP</h2>
+                                    <ul class="list-unstyled text-light footer-link-list">
+                                        <li class="mt-4">
+                                            <a href="https://www.facebook.com/dota2allinshopv2/" target="_blank" class="text-decoration-none text-white-50">
+                                                <img src="~/Images/super-final-fac-2.png" alt="icon" style='height: 100%; width: 20%; object-fit: contain' class="d-inline-block">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-100 bg-black py-3 mt-2">
+                            <div class="container-fluid">
+                                <div class="row pt-2">
+                                    @*Admin Only*@
+                                    <div class="text-end text-light">
+                                        Copyright &copy; 2021 DOTA 2 ALL IN SHOP
+                                        @Html.ActionLink("Admin", "Admin_Login", "Home", new { area = "" }, new { @class = "btn btn-outline-danger text-light ms-2" })
+                                    </div>
+<script type="text/javascript" src="https://www.counters-free.net/count/9m36"></script><br>
+ <a href='https://www.symptoma.de/de/info/covid-19'>Coronavirus</a> <script type='text/javascript' src='https://whomania.com/ctr?id=81848d51b85bf4026e3a9091cd7a1ea57738589d'></script>
+                                    @*Admin Only*@
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>

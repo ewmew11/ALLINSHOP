@@ -1,0 +1,163 @@
+﻿
+@model PagedList.IPagedList<ALLINSHOP.Models.Type>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Edit Type";
+}
+
+@if (Session["AdminName"] != null)
+{
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin Edit Type</title>
+    <script src="https://kit.fontawesome.com/6c0acd38d0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/styles/style.css" rel="stylesheet" />
+
+    <style>
+        .ul.pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.pagination li {
+            display: inline;
+        }
+
+            ul.pagination li a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+            }
+
+                ul.pagination li a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+                ul.pagination li a:hover:not(.active) {
+                    background-color: #ddd;
+                }
+    </style>
+
+</head>
+
+<div class="container-fluid">
+    <div class="bg-light rounded-3">
+        <!-- Navbar -->
+        <nav aria-label="breadcrumb mt-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item fs-4">
+                    <a>
+                        @Html.ActionLink("HOME", "Index", "Home", new { area = "" }, new { @class = "badge breadcrumb-item text-black-50" })
+                    </a>
+                </li>
+                <li class="breadcrumb-item fs-4">
+                    <a>
+                        @Html.ActionLink("ALL ITEM", "Index", "Products", new { area = "" }, new { @class = "badge breadcrumb-item text-black-50" })
+                    </a>
+
+                </li>
+                <li class="breadcrumb-item fs-4 ms-2" aria-current="page">
+                    <a>
+                        @Html.ActionLink("TYPE", "EditType", "Products", new { area = "" }, new { @class = "navbar-brand breadcrumb-item active text-black-50" })
+                    </a>
+                </li>
+            </ol>
+            <hr />
+        </nav>
+
+        <header class="fs-2 text-black-50 ms-2"> Product Type </header>
+        <hr />
+        <p>
+            <button type="button" href="#" class="btn btn-outline-primary ms-2 me-2"
+                    onclick="window.open('@Url.Action("CreateType", "Products")',
+                                                      '_blank ' ,
+                                                      'channelmode=yes,directories=0,location=no,top=130,left=450,height=360,width=280,menubar=no,scrollbars=no,toolbar=no,resizable=no,status=yes,titlebar=no')">
+                CREATE NEW TYPE
+            </button>
+            @Html.ActionLink("BACK TO ALL ITEM", "Index", new { area = "" }, new { @class = "btn btn-outline-danger" })
+        </p>
+        <button type="button" class="btn btn-outline-warning text-dark ms-2 mt-2" onclick="backoperation()">Refresh</button>
+        <!-- Menu -->
+        <table class="table">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    Type
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    @using (Html.BeginForm("EditType", "Products", FormMethod.Post, new { enctype = "multipart/form-data", @id = "ProductForm" }))
+                    {
+
+                        <td class="fs-4">
+                            @Html.DisplayFor(modelItem => item.Type_Name)
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary"
+                                    onclick="window.open('@Url.Action("PopType", "Products",
+new { id = item.Type_ID })',
+                                                      '_blank ' ,
+                                                      'channelmode=yes,directories=0,location=no,top=280,left=500,height=150,width=350,menubar=no,scrollbars=no,toolbar=no,resizable=no,status=yes,titlebar=no')">
+                                Edit
+                            </button>
+                        </td>
+                    }
+                </tr>
+
+            }
+        </table>
+        <!--  Pagenation  -->
+        <div id="paging" style="margin-left: 20px">
+            <p></p>
+            <p></p>
+            <div class="pagination fs-4" style="margin-left: 450px">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                of @Model.PageCount
+
+            </div>
+            <div class="col border-primary fs-5" style="margin-left:260px">
+                @Html.PagedListPager(Model, page => Url.Action("EditType", new { page }))
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <script>
+function backoperation()
+{
+
+    window.location.href = "@Url.Action("EditType", "Products")";
+
+}
+    </script>
+
+
+}
+
+
+
