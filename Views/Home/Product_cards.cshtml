@@ -31,7 +31,7 @@
         }
 
         ul.pagination li {
-            display: inline;
+            display:run-in;
         }
 
         ul.pagination li a {
@@ -115,9 +115,9 @@
 
 <body>
     @*Background*@
-    <div class="container-fluid">
+    <div class="container-fluid bg-dark">
         <div class="bg-image"
-             style="background-image: url(/Images/card_bg.png);
+             style="background-image: url();
                     height:auto;
                     background-size:contain;
                     background-position:left;
@@ -165,15 +165,15 @@
                 </div>
                 @*Table*@
 
-                <div class="row">
+                <div class=" row">
                     @*Product Cards*@
                     <div class="col-auto py-2 justify-content-center text-dark">
-                        <div class="container-fluid mt-2 mb-2">
-                            <div class="row row-cols-auto text-center">
+                        <div class="mt-2 mb-2">
+                            <div class="row text-center">
                                 @foreach (var item in Model)
                                 {
-                                    <div class="col-md-auto">
-                                        <div class="card bg-danger text-light zoom ms-5 mt-2 mb-lg-5 text-center" style="width:260px;height:30rem;object-fit:contain">
+                                    <div class="col-md-3">
+                                        <div class="card bg-danger text-light zoom ms-4 mt-2 mb-lg-5 text-center" style="width:260px;height:30rem;object-fit:contain">
                                             <div class="text-start">
                                                 <img class="card-img-top rounded-3" src="@Url.Content(item.PO_Pic)" style="height:160px;width:contain;" />
                                             </div>
@@ -206,24 +206,26 @@
                                     </div>
                                 }
                             </div>
+                            @*Pagnation*@
+                            <div class="text-center" id="paging">
+                                <p></p>
+                                <div class="row">
+                                    <div class=" center-screen pagination text-white-50 fs-4" style="object-fit:scale-down">
+                                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                        of @Model.PageCount
+                                    </div>
+                                </div>
+                                <div class="center-screen border-primary fs-4" style="object-fit::scale-down ">
+                                    @Html.PagedListPager(Model, page => Url.Action("Product_cards",
+                                    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                                </div>
+                            </div>
                         </div>
+
+                       
                     </div>
                     @*Product Cards*@
 
-                    @*Pagnation*@
-                    <div class="text-center" id="paging">
-                        <p></p>
-                        <div class="row">
-                            <div class="col center-screen pagination text-white-50 fs-4" style="object-fit:scale-down">
-                                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-                                of @Model.PageCount
-                            </div>
-                        </div>
-                        <div class="col center-screen border-primary fs-4" style="object-fit:scale-down">
-                            @Html.PagedListPager(Model, page => Url.Action("Product_cards",
-                            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

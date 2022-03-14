@@ -14,6 +14,8 @@ namespace ALLINSHOP.Models
     
     public partial class Type
     {
+        internal string errorMessage;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Type()
         {
@@ -25,6 +27,5 @@ namespace ALLINSHOP.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
-        public string errorMessage { get; internal set; }
     }
 }

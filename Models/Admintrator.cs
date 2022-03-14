@@ -14,9 +14,10 @@ namespace ALLINSHOP.Models
     
     public partial class Admintrator
     {
+        internal string errorMessage;
+
         public System.Guid Admin_ID { get; set; }
         public string Admin_Name { get; set; }
         public string Admin_Pa { get; set; }
-        public string errorMessage { get; internal set; }
     }
 }

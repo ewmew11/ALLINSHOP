@@ -147,7 +147,7 @@ namespace ALLINSHOP.Controllers
                     break;
             }
 
-            int pageSize = 30;
+            int pageSize = 32;
             int pageNumber = (page ?? 1);
 
             ViewBag.Hero_ID = new SelectList(db.Heroes, "Hero_ID", "Hero_Name");

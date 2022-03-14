@@ -1,5 +1,5 @@
 
-/* reset code */
+/* global */
 html {
     scroll-behavior: smooth;
 }
@@ -8,6 +8,109 @@ body,
 html {
     margin: 0;
     padding: 0;
+    font-size:14px;
+    font-family:'Verdana',sans-serif;
+}
+
+a{
+    color: red;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+h1{
+    font-size:16px;
+    font-weight:bolder;
+}
+
+.container{
+   margin:20px;
+   padding:20px;
+}
+
+.subforum{
+    margin-top: 20px;
+}
+
+.subforum-title{
+    background-color:black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 4px;
+}
+
+.subforum-row{
+    display: grid;
+    grid-template-columns: 7% 60% 13% 20%;
+}
+
+.subforum-column{
+    padding: 10px;
+    margin: 4px;
+    border-radius: 5px;
+    background-color: #241d1d;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subforum-icon i{
+    font-size:45px;
+}
+
+@media screen and (max-width: 460px){
+    .container{
+        margin: 10px;
+        padding: 10px;
+
+    }
+    .subforum-row {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 65% 35%;
+    }
+
+}
+
+/*for the tablets*/
+@media screen and (min-width: 460px) and (max-width: 1024px)
+{
+    .container{
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .subforum-row{
+        display: grid;
+        grid-template-columns: 10% 60% 13% 20%;
+    }
+
+    .subforum-icon i {
+        font-size: 35px;
+    }
+
+    html{
+        font-size: 16px;
+    }
+
+    h1{
+        font-size: 18px;
+    }
+}
+
+.comment-area{
+    margin-top: 50px;
+
+}
+
+.comment-area textarea{
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    margin-block: 10px;
 }
 
 * {
@@ -84,29 +187,6 @@ html {
     margin-left: auto;
 }
 
-@media (min-width: 576px) {
-    .wrapper {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .wrapper {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .wrapper {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .wrapper {
-        max-width: 1140px;
-    }
-}
 
 /*  /wrapper */
 
@@ -131,18 +211,7 @@ a {
     text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol {
-    margin: 0;
-    padding: 0;
-}
+
 
 body {
     margin: 0;
@@ -315,12 +384,6 @@ a.btn.btn-block.btn-social.btn-facebook {
     font-weight: 600;
 }
 
-h1 {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 500;
-    color: #3b3663;
-}
 
 .w3_info {
     box-sizing: border-box;
@@ -431,160 +494,7 @@ h5 {
     color: #aaa;
 }
 
-/** Responsive **/
-@media screen and (max-width: 1440px) {}
 
-
-@media screen and (max-width: 991px) {
-    .w3_info h2 {
-        font-size: 24px;
-    }
-
-    h1 {
-        font-size: 35px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-}
-
-@media screen and (max-width: 800px) {
-    .w3_info h2 {
-        font-size: 23px;
-    }
-
-    .w3l-form-info {
-        flex-direction: column;
-    }
-
-    .w3l_form {
-        order: 2;
-    }
-
-    .container {
-        max-width: 550px;
-    }
-
-}
-
-
-@media screen and (max-width: 736px) {
-    .w3_info h2 {
-        font-size: 22px;
-    }
-}
-
-@media screen and (max-width: 667px) {
-    .w3_info {
-        padding: 3em 3em;
-    }
-
-    .w3l-form-info {
-        margin: 20px 0 30px;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    h1 {
-        font-size: 37px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .w3l_form {
-        padding: 0em;
-    }
-
-    .w3_info {
-        padding: 2em 2em;
-        width: 430px;
-    }
-
-    h1 {
-        font-size: 34px;
-    }
-}
-
-@media screen and (max-width: 415px) {
-
-    h1 {
-        font-size: 30px;
-    }
-
-    .w3_info {
-        width: 380px;
-    }
-    .signinform {
-        padding: 40px 20px;
-    }
-}
-
-@media screen and (max-width: 384px) {
-
-    .signinform {
-        padding: 30px 15px;
-    }
-    .w3_info {
-        width: 350px;
-    }
-    .twitter,.google,.facebook {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 13px;
-    }
-    span.fab{
-        line-height: 40px;
-    }
-    .social-login {
-        grid-gap: 10px;
-    }
-    a.forgot,.form-row .form-check input[type="checkbox"]+label {
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .w3_info {
-        width: 335px;
-        padding: 2em 1.5em;
-    }
-    .footer p {
-        font-size: 17px;
-    }
-    input[type="text"], input[type="email"], input[type="Password"] {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    h1 {
-        font-size: 25px;
-    }
-
-    .w3_info h2 {
-        font-size: 18px;
-    }
-
-    .btn-primary {
-        padding: 13px 12px;
-        font-size: 13px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 13px;
-    }
-
-    .footer p {
-        font-size: 13px;
-    }
-
-    .footer p a {
-        font-size: 13px;
-    }
-}
 
 /* Google Fonts Import Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');

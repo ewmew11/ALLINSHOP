@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,8 +12,8 @@
     <meta property="og:description" content="จำหน่ายสินค้าทุกชนิดในเกมส์ Dota 2">
     <link runat="server" rel="shortcut icon" href="~/Images/Icons/juggernaut.ico" type="image/x-icon" />
     <link runat="server" rel="shortcut icon" href="~/Images/Icons/ico-e.ico" type="image/x-ico" />
-<meta name="google-site-verification" content="qxz36NJZQdlo4MEcuba8SaxgCcTb7RKoB7N1pvr-7ns" />
-<meta name="google-site-verification" content="3XF6s2Gvh0Oisqo3DgYG3AgGjavyDHiWP57ehAox19o" />
+    <meta name="google-site-verification" content="qxz36NJZQdlo4MEcuba8SaxgCcTb7RKoB7N1pvr-7ns" />
+    <meta name="google-site-verification" content="3XF6s2Gvh0Oisqo3DgYG3AgGjavyDHiWP57ehAox19o" />
     <script src="https://kit.fontawesome.com/6c0acd38d0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -22,6 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <link href="~/dist/Content/PagedList.css" rel="stylesheet" type="text/css" />
     <link href="~/styles/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -69,18 +71,17 @@
         </script>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
         <!-- Facebook Chat plugin  -->
-
         @*Navbar Bg*@
-        <div class="container-fluid">
+
             <div class="row flex-nowrap">
-                <div class="col-auto col-lg-3 col-xl-1 px-sm-2 px-0 bg-image"
+                <div class="col-auto col-lg-4 col-xxl-1 px-sm-2 px-0 bg-image"
                      style="background-image: url(/Images/nav-bg.jpg);
                      background-size:cover;
                      background-position:center;
                      background-repeat:no-repeat;">
 
                     @*Side Nav Menu*@
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
+                    <div class="d-flex flex-column align-items-center px-3 pt-2 text-white min-vh-100 ">
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5 position-fixed" id="menu">
                             <li class="nav-item">
                                 <a href="/" class="navbar-brand text-center ms-4 align-middle px-0">
@@ -93,7 +94,7 @@
                             @*Index Page*@
                             <li class="nav-item">
                                 <a href="#" class="nav-link align-middle px-0" onclick="window.open('@Url.Action("Index", "Home")','_self')">
-                                    <i class="fas fa-house-damage fs-3 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Home </span>
+                                    <i class="fas fa-house-damage fs-4 text-dark"></i><span class="ms-1 d-none d-sm-inline fs-5 text-dark fw-bold mb-1"> Home </span>
                                 </a>
                             </li>
                             <li>
@@ -102,7 +103,16 @@
                             @*Item Page*@
                             <li class="nav-item">
                                 <a href="#" class="nav-link align-middle px-0" onclick="window.open('@Url.Action("Product_cards", "Home")','_self')">
-                                    <i class="fas fa-dice-d20 fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Item&nbsp; </span>
+                                    <i class="fas fa-dice-d20 fs-4 text-dark"></i><span class="ms-1 d-none d-sm-inline fs-5 text-dark fw-bold mb-1"> Item&nbsp; </span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr />
+                            </li>
+                            @*Forum*@
+                            <li class="nav-item">
+                                <a href="#" class="nav-link align-middle px-0" onclick="window.open('@Url.Action("Form_Page", "Home")','_self')">
+                                    <i class="far fa-question-circle fs-4 text-dark"></i><span class="ms-1 d-none d-sm-inline fs-5 text-dark fw-bold mb-1"> Form&nbsp; </span>
                                 </a>
                             </li>
                             <li>
@@ -110,8 +120,8 @@
                             </li>
                             @*Hero Dropdown*@
                             <li class="nav-item">
-                                <a class="nav-link align-middle px-0 dropdown-toggle text-black-50" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" data-mdb-filter="true" >
-                                    <i class="fas fa-hamsa fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Hero</span>
+                                <a class="nav-link align-middle px-0 dropdown-toggle-split text-black-50" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" data-mdb-filter="true">
+                                    <i class="fas fa-hamsa fs-4 text-dark"></i><span class="ms-1 d-none d-sm-inline fs-5 text-dark fw-bold mb-1"> Hero</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark bg-dark  scrollable-menu rounded-3" aria-labelledby="navbarDarkDropdownMenuLink1" role="menu">
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Abaddon" })','_self')">Abaddon</a></li>
@@ -242,8 +252,8 @@
                             </li>
                             @*Type Dropdown*@
                             <li class="nav-item">
-                                <a class="nav-link align-middle px-0 dropdown-toggle text-black-50" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                    <i class="fab fa-hornbill fs-2 text-danger"></i><span class="ms-1 d-none d-sm-inline fs-4 text-dark fw-bold mb-1"> Type</span>
+                                <a class="nav-link align-middle px-0 dropdown-toggle-split text-black-50" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                    <i class="fab fa-hornbill fs-4 text-dark"></i><span class="ms-1 d-none d-sm-inline fs-5 text-dark fw-bold mb-1"> Type</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark bg-dark rounded-3 scrollable-menu1" aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Announcer" })','_self')">Announcer</a></li>
@@ -264,7 +274,7 @@
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Music" })','_self')">Music</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Set (Add 30 days)" })','_self')">Set (30 days)</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Set" })','_self')">Set</a></li>
-<li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pet" })','_self')">Pet</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Pet" })','_self')">Pet</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Taunt" })','_self')">Taunt</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Terrain" })','_self')">Terrain</a></li>
                                     <li><a class="dropdown-item" href="#" onclick="window.open('@Url.Action("Product_hero", "Home", new { id ="Tools" })','_self')">Tools</a></li>
@@ -300,8 +310,9 @@
                             </div>
                         </div>
                     </div>
-                    <hr />
-                    @RenderBody()
+                    <div class="col-auto">
+                        @RenderBody()
+                    </div>
                     <hr />
                     @*Footer*@
                     <footer class="bg-dark rounded-3" id="tempaltemo_footer">
@@ -328,8 +339,6 @@
                                         Copyright &copy; 2021 DOTA 2 ALL IN SHOP
                                         @Html.ActionLink("Admin", "Admin_Login", "Home", new { area = "" }, new { @class = "btn btn-outline-danger text-light ms-2" })
                                     </div>
-<script type="text/javascript" src="https://www.counters-free.net/count/9m36"></script><br>
- <a href='https://www.symptoma.de/de/info/covid-19'>Coronavirus</a> <script type='text/javascript' src='https://whomania.com/ctr?id=81848d51b85bf4026e3a9091cd7a1ea57738589d'></script>
                                     @*Admin Only*@
                                 </div>
                             </div>
@@ -337,32 +346,32 @@
                     </footer>
                 </div>
             </div>
-        </div>
+       
     </div>
 
 </body>
 </html>
 
 <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
     }
-  }
-}
+
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
 </script>
